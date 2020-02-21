@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'seller', loadChildren: './seller/seller.module.ts#SellerModule'
+    path: 'seller', loadChildren: './seller/seller.module#SellerModule'
   },
   {
-    path: '', loadChildren: './buyer/buyer.module.ts#BuyerModule'
+    path: '', loadChildren: './buyer/buyer.module#BuyerModule'
   }
 ];
 

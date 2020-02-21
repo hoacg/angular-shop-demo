@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form [formGroup]="formGroup" (ngSubmit)="save()">
+      <div class="form-group">
+        <label for="productName">Tên sản phẩm</label>
+        <input formControlName="name" type="text" class="form-control" id="productName" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="productImage">Hình ảnh</label>
+        <input formControlName="image" type="text" class="form-control" id="productImage">
+      </div>
+      <div class="form-group">
+        <label for="productPrice">Giá</label>
+        <input formControlName="price" type="text" class="form-control" id="productPrice">
+      </div>
+
+      <div class="form-group">
+        <label for="productDescription">Mô tả ngắn</label>
+        <input formControlName="description" type="text" class="form-control" id="productDescription">
+      </div>
+      <button type="submit" class="btn btn-primary">Thêm</button>
+    </form>
+
+  </div>
+  <div class="col-3"></div>
+</div>

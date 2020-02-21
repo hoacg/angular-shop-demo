@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage/homepage.component';
 import {RouterModule, Routes} from '@angular/router';
+import {ProductService} from './product.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -14,7 +16,9 @@ const routes: Routes = [
   declarations: [HomepageComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+    HttpClientModule
+  ],
+  providers: [ProductService]
 })
 export class BuyerModule { }

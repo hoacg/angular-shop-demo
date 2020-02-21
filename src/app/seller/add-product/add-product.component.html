@@ -1,6 +1,12 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
+    <div *ngIf="isShow"
+         class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+         role="alert">
+      {{message}}
+    </div>
+
     <form [formGroup]="formGroup" (ngSubmit)="save()">
       <div class="form-group">
         <label for="productName">Tên sản phẩm</label>
@@ -19,7 +25,12 @@
         <label for="productDescription">Mô tả ngắn</label>
         <input formControlName="description" type="text" class="form-control" id="productDescription">
       </div>
-      <button type="submit" class="btn btn-primary">Thêm</button>
+      <button type="submit" class="btn btn-primary">
+        Thêm
+        <div *ngIf="isLoading" class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </button>
     </form>
 
   </div>

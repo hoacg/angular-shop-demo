@@ -10,6 +10,10 @@ import {ProductService} from '../product.service';
 export class AddProductComponent implements OnInit {
 
   formGroup: FormGroup;
+  message = '';
+  isShow = false;
+  isSuccess = true;
+  isLoading = false;
 
   constructor(private productService: ProductService) { }
 
@@ -23,11 +27,20 @@ export class AddProductComponent implements OnInit {
   }
 
   save() {
+    this.isLoading = true;
     const product = this.formGroup.value;
     this.productService.createProduct(product).subscribe( result => {
-      alert('Thêm thành công!');
+      this.isShow = true;
+      this.isSuccess = true;
+      this.message = 'Thêm thành công!';
+      this.isLoading = false;
+      this.formGroup.reset();
     }, error => {
-      alert('Thêm thất bại!');
+      this.isShow = true;
+      this.isSuccess = false;
+      this.message = 'Thêm thất bại!';
+      this.isLoading = false;
+      this.formGroup.reset();
     });
   }
 
